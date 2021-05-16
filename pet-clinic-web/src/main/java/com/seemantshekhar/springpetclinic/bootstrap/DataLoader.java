@@ -2,7 +2,9 @@ package com.seemantshekhar.springpetclinic.bootstrap;
 
 import com.seemantshekhar.springpetclinic.models.Owner;
 import com.seemantshekhar.springpetclinic.models.Vet;
-import com.seemantshekhar.springpetclinic.services.*;
+import com.seemantshekhar.springpetclinic.services.OwnerService;
+import com.seemantshekhar.springpetclinic.services.PetService;
+import com.seemantshekhar.springpetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +15,10 @@ public class DataLoader implements CommandLineRunner {
     private final PetService petService;
     private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.petService = new PetServiceMap();
-        this.vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, PetService petService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.petService = petService;
+        this.vetService = vetService;
     }
 
     @Override
